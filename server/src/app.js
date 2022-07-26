@@ -22,8 +22,8 @@ app.use(
 app.use(morgan("combined"));
 
 //use routers
-app.use("planets", planetsRouter);
-app.use("launches", launchesRouter);
+app.use("/planets", planetsRouter);
+app.use("/launches", launchesRouter);
 
 //server frontend
 app.use(express.static(path.join(__dirname, "..", "public")));
