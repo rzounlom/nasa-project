@@ -4,6 +4,7 @@ const path = require("path");
 const morgan = require("morgan");
 
 const planetsRouter = require("./routes/planets/planets.router");
+const launchesRouter = require("./routes/launches/launches.router");
 
 const app = express();
 
@@ -19,14 +20,16 @@ app.use(
 
 //use morgan middleware for logging
 app.use(morgan("combined"));
+
 //use routers
 app.use(planetsRouter);
+app.use(launchesRouter);
 
 //server frontend
 app.use(express.static(path.join(__dirname, "..", "public")));
 
 //set default index.html page to the root route when accessing the server
-app.get("/", (req, res) => {
+app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "..", "public", "index.html"));
 });
 
