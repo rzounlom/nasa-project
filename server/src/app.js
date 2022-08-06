@@ -3,8 +3,7 @@ const cors = require("cors");
 const path = require("path");
 const morgan = require("morgan");
 
-const planetsRouter = require("./routes/planets/planets.router");
-const launchesRouter = require("./routes/launches/launches.router");
+const api = require("./routes/api");
 
 const app = express();
 
@@ -21,12 +20,10 @@ app.use(
 //use morgan middleware for logging
 app.use(morgan("combined"));
 
-//use routers
-app.use("/planets", planetsRouter);
-app.use("/launches", launchesRouter);
-
 //server frontend
 app.use(express.static(path.join(__dirname, "..", "public")));
+//use routers
+app.use("/v1", api);
 
 //set default index.html page to the root route when accessing the server
 app.get("/*", (req, res) => {

@@ -1,5 +1,5 @@
 const http = require("http");
-const { mongoConnect } = requre("./services/mongo.js");
+const { mongoConnect } = require("./services/mongo.js");
 
 const app = require("./app");
 
