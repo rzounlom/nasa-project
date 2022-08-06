@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
 
-const MONGO_URL =
-  "mongodb+srv://omp_admin:SecuritY2121808@cluster0.ky6cx.gcp.mongodb.net/nasa?retryWrites=true&w=majority";
+require("dotenv").config();
+
+const MONGO_URL = process.env.MONGO_URL;
 
 async function mongoConnect() {
   await mongoose
