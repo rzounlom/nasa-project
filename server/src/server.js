@@ -9,6 +9,7 @@ const { loadLaunchesData } = require("./models/launches.model");
 
 const PORT = process.env.PORT || 8000;
 
+//create express server
 const server = http.createServer(app);
 
 // mongoose.connection.once("open", () => console.log("MongoDB connection ready"));
